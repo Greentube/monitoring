@@ -24,7 +24,7 @@ namespace Greentube.Monitoring
             string resourceName,
             Uri healthCheckEndpoint,
             HttpClient httpClient,
-            ResourceMonitorConfiguration configuration,
+            IResourceMonitorConfiguration configuration,
             ILogger<HttpResourceMonitor> logger,
             bool isCritical = false)
             : base(

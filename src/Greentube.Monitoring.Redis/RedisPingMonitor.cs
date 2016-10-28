@@ -23,7 +23,7 @@ namespace Greentube.Monitoring.Redis
             bool isCritical,
             IConnectionMultiplexer connectionMultiplexer,
             ILogger<RedisPingMonitor> logger,
-            ResourceMonitorConfiguration configuration,
+            IResourceMonitorConfiguration configuration,
             string resourceName = null)
             : base(resourceName ?? GetResourceName(connectionMultiplexer),
               new RedisPingHealthCheckStrategy(connectionMultiplexer),

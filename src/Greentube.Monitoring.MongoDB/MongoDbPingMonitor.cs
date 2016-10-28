@@ -21,7 +21,7 @@ namespace Greentube.Monitoring.MongoDB
         public MongoDbPingMonitor(
             IMongoDatabase mongoDatabase,
             ILogger<MongoDbPingMonitor> logger,
-            ResourceMonitorConfiguration configuration,
+            IResourceMonitorConfiguration configuration,
             string resourceName = null,
             bool isCritical = true)
             : base(resourceName ?? "MongoDB:" + string.Join(",", mongoDatabase.Client.Settings.Servers.Select(e => e.ToString())),
