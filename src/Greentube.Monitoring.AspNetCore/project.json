@@ -1,0 +1,22 @@
+﻿{
+  "version": "1.0.0-*",
+
+  "buildOptions": {
+    "compile": "../../GlobalAssemblyInfo.cs",
+    "xmlDoc": true
+  },
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.0",
+    "Microsoft.AspNetCore.Http.Abstractions": "1.0.0",
+    "Microsoft.Extensions.DependencyInjection": "1.0.0",
+    "Greentube.Monitoring": "1.0.0",
+    "Newtonsoft.Json": "9.0.1"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}
