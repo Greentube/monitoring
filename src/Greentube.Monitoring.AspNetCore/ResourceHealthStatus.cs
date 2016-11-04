@@ -21,7 +21,7 @@ namespace Greentube.Monitoring.AspNetCore
         /// <value>
         /// <c>true</c> if this instance is critical; otherwise, <c>false</c>.
         /// </value>
-        public bool IsCritical { [UsedImplicitly] get; set; }
+        public bool IsCritical { [UsedImplicitly]  get; set; }
         /// <summary>
         /// Gets or sets the events.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Greentube.Monitoring.AspNetCore
             /// <value>
             ///   <c>true</c> if this instance is up; otherwise, <c>false</c>.
             /// </value>
-            public bool IsUp { [UsedImplicitly]  get; set; }
+            public bool Up { [UsedImplicitly] get; set; }
             /// <summary>
             /// Gets or sets the verification time in UTC.
             /// </summary>
@@ -62,7 +62,7 @@ namespace Greentube.Monitoring.AspNetCore
             /// <value>
             /// The exception.
             /// </value>
-            public Exception Exception { [UsedImplicitly] get; set; }
+            public string Exception { [UsedImplicitly] get; set; }
         }
     }
 }

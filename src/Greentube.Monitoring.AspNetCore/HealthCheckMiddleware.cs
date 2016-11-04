@@ -7,14 +7,22 @@ using Newtonsoft.Json;
 
 namespace Greentube.Monitoring.AspNetCore
 {
-    public sealed class HealthCheckMiddleware
+    /// <summary>
+    /// AspNetCore health check middleware using <see cref="IResourceStateCollector"/>
+    /// </summary>
+    public class HealthCheckMiddleware
     {
         private readonly RequestDelegate _next;
         private readonly IResourceStateCollector _collector;
 
-        public HealthCheckMiddleware(
-            RequestDelegate next,
-            IResourceStateCollector collector)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="HealthCheckMiddleware"/> class.
+        /// </summary>
+        /// <param name="next">The next.</param>
+        /// <param name="collector">The collector.</param>
+        /// <exception cref="ArgumentNullException">
+        /// </exception>
+        public HealthCheckMiddleware(RequestDelegate next, IResourceStateCollector collector)
         {
             if (next == null) throw new ArgumentNullException(nameof(next));
             if (collector == null) throw new ArgumentNullException(nameof(collector));
@@ -22,10 +30,13 @@ namespace Greentube.Monitoring.AspNetCore
             _collector = collector;
         }
 
+        /// <summary>
+        /// Invokes the specified context.
+        /// </summary>
+        /// <param name="context">The context.</param>
+        /// <returns></returns>
         public async Task Invoke(HttpContext context)
         {
-            // TODO: how to add swagger?
-
             if (context.Request.Method != "GET")
             {
                 await _next(context);
@@ -68,17 +79,17 @@ namespace Greentube.Monitoring.AspNetCore
                         .MonitorEvents
                         .Select(e => new ResourceHealthStatus.Event
                         {
-                            Exception = e.Exception,
+                            Exception = e.Exception?.ToString(),
                             Latency = e.Latency,
-                            IsUp = e.IsUp,
+                            Up = e.IsUp,
                             VerificationTimeUtc = e.VerificationTimeUtc
                         })
                 });
             }
 
-            var body = new DetailedHealthCheckResponse
+            var body = new HealthCheckDetailedResponse
             {
-                IsUp = isNodeUp,
+                Up = isNodeUp,
                 ResourceStates = models
             };
 

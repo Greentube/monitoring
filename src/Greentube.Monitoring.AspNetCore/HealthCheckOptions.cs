@@ -1,9 +1,9 @@
 namespace Greentube.Monitoring.AspNetCore
 {
     /// <summary>
-    /// Health Check Middleware Options
+    /// Options for the health check endpoint
     /// </summary>
-    public class HealthCheckEndPointOptions
+    public class HealthCheckOptions
     {
         /// <summary>
         /// Gets or sets the path to bind the Health Check
