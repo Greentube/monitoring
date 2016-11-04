@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Linq;
+using Greentube.Monitoring;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-// ReSharper disable once CheckNamespace
-namespace Greentube.Monitoring
+// ReSharper disable once CheckNamespace - To ease discoverability (and avoid tons of using directives) on ASP.NET Core: Startup.cs
+namespace Microsoft.AspNetCore.Builder
 {
     /// <summary>
     /// Registers services required by Monitoring library
