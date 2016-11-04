@@ -33,15 +33,15 @@ namespace Greentube.Monitoring
         TimeSpan Timeout { get; }
 
         /// <summary>
-        /// Gets or sets a value indicating whether [run first check synchronously].
+        /// Gets or sets a value indicating whether [the first verification runs synchronously].
         /// </summary>
         /// <remarks>
-        /// When running integration tests, waiting for Timers to trigger the Monitor delays the tests
         /// This flag instructs the Monitors to run the first check synchronously (Starting the Monitor becomes a blocking call)
+        /// When running integration tests, waiting for Timers to trigger the Monitor delays the tests
         /// </remarks>
         /// <value>
         /// <c>true</c> if [run first check synchronously]; otherwise, <c>false</c>.
         /// </value>
-        bool RunFirstCheckSynchronously { get; }
+        bool StartSynchronously { get; }
     }
 }

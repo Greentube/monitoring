@@ -102,7 +102,7 @@ namespace Greentube.Monitoring
         /// </summary>
         protected override void DoStart()
         {
-            if (Configuration.RunFirstCheckSynchronously)
+            if (Configuration.StartSynchronously)
             {
                 _logger.LogInformation("Starting ResourceMonitor - Executing the first check for: {ResourceName} synchronously", ResourceName);
                 Verify();
@@ -114,7 +114,6 @@ namespace Greentube.Monitoring
 
                 _timer.Change(period, period);
             }
-
         }
 
         /// <summary>

@@ -41,7 +41,7 @@ namespace Greentube.Monitoring
         /// <value>
         /// <c>true</c> if [run first check synchronously]; otherwise, <c>false</c>.
         /// </value>
-        public bool RunFirstCheckSynchronously { get; }
+        public bool StartSynchronously { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ResourceMonitorConfiguration"/> class.
@@ -56,7 +56,7 @@ namespace Greentube.Monitoring
             TimeSpan? intervalWhenUp = null,
             TimeSpan? timeout = null)
         {
-            RunFirstCheckSynchronously = runFirstCheckSynchronously;
+            StartSynchronously = runFirstCheckSynchronously;
             IntervalWhenDown = intervalWhenDown ?? TimeSpan.FromSeconds(10);
             IntervalWhenUp = intervalWhenUp ?? TimeSpan.FromSeconds(20);
             Timeout = timeout ?? IntervalWhenDown;
