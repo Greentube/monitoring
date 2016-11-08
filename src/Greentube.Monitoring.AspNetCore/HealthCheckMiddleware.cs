@@ -106,14 +106,16 @@ namespace Greentube.Monitoring.AspNetCore
         {
             var responseBody = JsonConvert.SerializeObject(body);
 
-            context.Response.ContentType = "application/json";
-            context.Response.ContentLength = responseBody.Length;
-            await context.Response.WriteAsync(responseBody);
-
             context.Response.StatusCode
                 = isNodeUp
                     ? StatusCodes.Status200OK
                     : StatusCodes.Status503ServiceUnavailable;
+
+            context.Response.ContentType = "application/json";
+            context.Response.ContentLength = responseBody.Length;
+            await context.Response.WriteAsync(responseBody);
+
+            
         }
     }
 }
