@@ -8,19 +8,19 @@ using Microsoft.Extensions.DependencyInjection;
 namespace Microsoft.AspNetCore.Builder
 {
     /// <summary>
-    /// Health check middleware
+    /// Monitoring Health check middleware
     /// </summary>
-    public static class HealthCheckApplicationBuilderExtensions
+    public static class MonitoringEndpointApplicationBuilderExtensions
     {
         /// <summary>
-        /// Uses the health check endpoint.
+        /// Uses the monitoring health check endpoint.
         /// </summary>
         /// <param name="app">The application.</param>
         /// <param name="optionsSetup">The options setup.</param>
         /// <returns></returns>
         /// <exception cref="ArgumentNullException"></exception>
         [PublicAPI]
-        public static IApplicationBuilder UseHealthCheckEndpoint(
+        public static IApplicationBuilder UseMonitoringEndpoint(
             this IApplicationBuilder app,
             Action<HealthCheckOptions> optionsSetup = null)
         {

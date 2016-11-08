@@ -30,17 +30,17 @@ namespace Greentube.Monitoring.AspNetCore.Tests
         private readonly Fixture _fixture = new Fixture();
 
         [Fact]
-        public void UseHealthCheckEndpoint_HappyPath_StartsCollector()
+        public void UseMonitoringEndpoint_HappyPath_StartsCollector()
         {
             var sut = _fixture.GetSut();
 
-            sut.UseHealthCheckEndpoint();
+            sut.UseMonitoringEndpoint();
 
             _fixture.ResourceStateCollector.Received(1).Start();
         }
 
         [Fact]
-        public void UseHealthCheckEndpoint_StoppingApplicationLifetime_StopsCollector()
+        public void UseMonitoringEndpoint_StoppingApplicationLifetime_StopsCollector()
         {
             var source = new CancellationTokenSource();
             var appLifetime = Substitute.For<IApplicationLifetime>();
@@ -49,17 +49,17 @@ namespace Greentube.Monitoring.AspNetCore.Tests
             var sut = _fixture.GetSut();
             sut.ApplicationServices.GetService(typeof(IApplicationLifetime)).Returns(appLifetime);
 
-            sut.UseHealthCheckEndpoint();
+            sut.UseMonitoringEndpoint();
             source.Cancel();
 
             _fixture.ResourceStateCollector.Received(1).Stop();
         }
 
         [Fact]
-        public void UseHealthCheckEndpoint_NullApplicationBuilder_ThrowsArgumentNull()
+        public void UseMonitoringEndpoint_NullApplicationBuilder_ThrowsArgumentNull()
         {
             IApplicationBuilder app = null;
-            Assert.Throws<ArgumentNullException>(() => app.UseHealthCheckEndpoint());
+            Assert.Throws<ArgumentNullException>(() => app.UseMonitoringEndpoint());
         }
     }
 }
