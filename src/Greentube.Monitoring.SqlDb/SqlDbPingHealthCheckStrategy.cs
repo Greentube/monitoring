@@ -35,11 +35,11 @@ namespace Greentube.Monitoring.SqlDb
         {
             using (var connection = _dbConnectionProvider.GetDbConnection())
             {
-                await connection.OpenAsync(token);
+                await connection.OpenAsync(token).ConfigureAwait(false);
                 using (DbCommand cmd = connection.CreateCommand())
                 {
                     cmd.CommandText = "SELECT 1";
-                    await cmd.ExecuteNonQueryAsync(token);
+                    await cmd.ExecuteNonQueryAsync(token).ConfigureAwait(false);
                     return true;
                 }
             }

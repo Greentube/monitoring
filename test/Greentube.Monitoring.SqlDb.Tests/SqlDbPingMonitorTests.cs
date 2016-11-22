@@ -18,7 +18,7 @@ namespace Greentube.Monitoring.SqlDb.Tests
                 TimeSpan.FromSeconds(2));
 
             private bool IsCritical { get; } = true;
-            public string ResourceName { private get; set; } = "MongoDB 123";
+            public string ResourceName { private get; set; } = "SQL Database 123";
 
             public SqlDbPingMonitor GetSut()
             {
