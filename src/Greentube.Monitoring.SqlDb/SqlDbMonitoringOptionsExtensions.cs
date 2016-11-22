@@ -52,17 +52,11 @@ namespace Greentube.Monitoring.SqlDb
             bool isCritical = true,
             IResourceMonitorConfiguration configOverride = null)
         {
-            options.AddResourceMonitor((conf, provider) =>
-            {
-                var logger = provider.GetRequiredService<ILogger<SqlDbPingMonitor>>();
-
-                return new SqlDbPingMonitor(
-                    new DbConnectionProvider(dbConnectionString), 
-                    logger,
-                    configOverride ?? conf,
-                    resourceName ?? "SQL Database",
-                    isCritical);
-            });
+            options.AddSqlDbMonitor(
+                new DbConnectionProvider(dbConnectionString), 
+                resourceName, 
+                isCritical, 
+                configOverride);
         }
     }
 }
