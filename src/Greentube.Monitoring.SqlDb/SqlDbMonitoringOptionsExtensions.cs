@@ -32,7 +32,7 @@ namespace Greentube.Monitoring.SqlDb
                     dbProvider,
                     logger,
                     configOverride ?? conf,
-                    resourceName ?? "Database",
+                    resourceName ?? "SQL Database",
                     isCritical);
             });
         }
@@ -60,7 +60,7 @@ namespace Greentube.Monitoring.SqlDb
                     new DbConnectionProvider(dbConnectionString), 
                     logger,
                     configOverride ?? conf,
-                    resourceName ?? "Database",
+                    resourceName ?? "SQL Database",
                     isCritical);
             });
         }

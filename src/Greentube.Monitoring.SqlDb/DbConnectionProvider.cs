@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
 
@@ -29,6 +30,7 @@ namespace Greentube.Monitoring.SqlDb
         /// <param name="connectionString">connection string used to create dbConnection</param>
         public DbConnectionProvider(string connectionString)
         {
+            if (string.IsNullOrWhiteSpace(_connectionString)) throw new ArgumentNullException(nameof(connectionString));
             _connectionString = connectionString;
         }
 
