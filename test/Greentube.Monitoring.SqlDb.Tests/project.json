@@ -12,7 +12,7 @@
             }
         }
     },
-    "version": "1.0.0",
+    "version": "1.0.0", //#replaceble
     "testRunner": "xunit",
     "dependencies": {
         "NSubstitute": "2.0.0-rc",
