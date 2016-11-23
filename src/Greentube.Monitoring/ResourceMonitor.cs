@@ -112,7 +112,7 @@ namespace Greentube.Monitoring
                 var period = Configuration.IntervalWhenUp;
                 _logger.LogInformation("Starting ResourceMonitor - Scheduling the first check for: {ResourceName} in {Period}", ResourceName, period);
 
-                _timer.Change(period, period);
+                _timer.Change(TimeSpan.Zero, period);
             }
         }
 
