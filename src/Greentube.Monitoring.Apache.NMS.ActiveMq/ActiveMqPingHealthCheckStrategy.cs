@@ -8,10 +8,11 @@ using Apache.NMS.ActiveMQ.Commands;
 namespace Greentube.Monitoring.Apache.NMS.ActiveMq
 {
     /// <summary>
-    /// Health check of ActiveMQ by creating connection and sending empty message to temporary queue
+    /// Health check of ActiveMQ by creating connection and sending empty message to a queue
     /// </summary>
     public class ActiveMqPingHealthCheckStrategy : IHealthCheckStrategy
     {
+        private readonly string destinationName = "healthCheckPingQueue";
         private readonly IConnectionFactory connectionFactory;
 
         /// <summary>
@@ -28,24 +29,25 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq
         /// <inheritdoc />
         public Task<bool> Check(CancellationToken token)
         {
-            return Task.Run(() =>
+            using (var connection0 = connectionFactory.CreateConnection())
             {
-                using (var connection = connectionFactory.CreateConnection())
+                using (var session = connection0.CreateSession())
                 {
-                    var session = connection.CreateSession();
-                    var queue = session.CreateTemporaryQueue();
-                    var producer = session.CreateProducer(queue);
+                    using (var destination = new ActiveMQQueue(destinationName))
+                    {
+                        using (var producer = session.CreateProducer(destination))
+                        {
+                            producer.DeliveryMode = MsgDeliveryMode.NonPersistent;
+                            producer.Priority = MsgPriority.AboveLow;
 
-                    IMessage message = new ActiveMQMessage();
-                    message.NMSMessageId = DateTime.UtcNow.ToString(CultureInfo.InvariantCulture);
-                    message.NMSPriority = MsgPriority.AboveLow;
-                    message.NMSTimeToLive = TimeSpan.FromSeconds(5);
-                    message.NMSDeliveryMode = MsgDeliveryMode.NonPersistent;
-
-                    producer.Send(message);
+                            var message = new ActiveMQMessage();
+                            message.NMSTimeToLive = TimeSpan.FromMilliseconds(1000);
+                            producer.Send(message);
+                        }
+                    }
                 }
-                return true;
-            }, token);
+            }
+            return Task.FromResult(true);
         }
     }
 }

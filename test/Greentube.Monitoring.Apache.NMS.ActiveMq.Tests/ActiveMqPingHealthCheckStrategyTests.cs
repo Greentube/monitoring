@@ -45,31 +45,14 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq.Tests
         }
 
         [Fact]
-        public async Task Check_CreateQueueThrows_ExceptionBubbles()
-        {
-            var connection = Substitute.For<IConnection>();
-            var session = Substitute.For<ISession>();
-
-            _fixture.ConnectionFactory.CreateConnection().Returns(connection);
-            connection.CreateSession().Returns(session);
-            session.CreateTemporaryQueue().ThrowsForAnyArgs<ArithmeticException>();
-
-
-            var target = _fixture.GetSut();
-            await Assert.ThrowsAsync<ArithmeticException>(() => target.Check(CancellationToken.None));
-        }
-
-        [Fact]
         public async Task Check_CreateProducerThrows_ExceptionBubbles()
         {
             var connection = Substitute.For<IConnection>();
             var session = Substitute.For<ISession>();
-            var queue = Substitute.For<ITemporaryQueue>();
 
             _fixture.ConnectionFactory.CreateConnection().Returns(connection);
             connection.CreateSession().Returns(session);
-            session.CreateTemporaryQueue().Returns(queue);
-            session.CreateProducer(queue).Throws<ArithmeticException>();
+            session.CreateProducer(Arg.Any<IDestination>()).Throws<ArithmeticException>();
 
             var target = _fixture.GetSut();
             await Assert.ThrowsAsync<ArithmeticException>(() => target.Check(CancellationToken.None));
@@ -80,14 +63,12 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq.Tests
         {
             var connection = Substitute.For<IConnection>();
             var session = Substitute.For<ISession>();
-            var queue = Substitute.For<ITemporaryQueue>();
             var producer = Substitute.For<IMessageProducer>();
 
             _fixture.ConnectionFactory.CreateConnection().Returns(connection);
             connection.CreateSession().Returns(session);
-            session.CreateTemporaryQueue().Returns(queue);
-            session.CreateProducer(queue).Returns(producer);
-            producer.When(_ => _.Send(Arg.Any<ActiveMQMessage>())).Do(_ => { throw new ArithmeticException(); });
+            session.CreateProducer(Arg.Any<IDestination>()).Returns(producer);
+            producer.When(p => p.Send(Arg.Any<ActiveMQMessage>())).Do(p => { throw new ArithmeticException(); });
 
             var target = _fixture.GetSut();
             await Assert.ThrowsAsync<ArithmeticException>(() => target.Check(CancellationToken.None));
@@ -98,13 +79,11 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq.Tests
         {
             var connection = Substitute.For<IConnection>();
             var session = Substitute.For<ISession>();
-            var queue = Substitute.For<ITemporaryQueue>();
             var producer = Substitute.For<IMessageProducer>();
 
             _fixture.ConnectionFactory.CreateConnection().Returns(connection);
             connection.CreateSession().Returns(session);
-            session.CreateTemporaryQueue().Returns(queue);
-            session.CreateProducer(queue).Returns(producer);
+            session.CreateProducer(Arg.Any<IDestination>()).Returns(producer);
 
             var target = _fixture.GetSut();
             var result = await target.Check(CancellationToken.None);

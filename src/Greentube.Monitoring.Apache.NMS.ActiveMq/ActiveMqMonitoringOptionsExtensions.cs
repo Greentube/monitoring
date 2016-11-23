@@ -18,18 +18,21 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq
         /// <param name="resourceName">Name of the resource.</param>
         /// <param name="isCritical">if set to <c>true</c> [is critical].</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void AddActiveMqMonitor(this MonitoringOptions options, Func<IResourceMonitorConfiguration, IServiceProvider, IActiveMqMonitoringConfig> configFactory, string resourceName = null, bool isCritical = true)
+        public static void AddActiveMqMonitor(this MonitoringOptions options, 
+            Func<IResourceMonitorConfiguration, IServiceProvider, IActiveMqMonitoringConfig> configFactory, 
+            string resourceName = null, 
+            bool isCritical = true)
         {
             
             options.AddResourceMonitor((configuration, provider) =>
             {
                 var config = configFactory(configuration, provider);
 
-                if (config.Url == null) throw new ArgumentNullException(nameof(config.Url));
+                if (config.Uri == null) throw new ArgumentNullException(nameof(config.Uri));
 
                 var connectionFactory = new ConnectionFactory()
                 {
-                    BrokerUri = new Uri(config.Url),
+                    BrokerUri = config.Uri,
                     UserName = config.User,
                     Password = config.Password
                 };
@@ -47,7 +50,10 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq
         /// <param name="resourceName">Name of the resource.</param>
         /// <param name="isCritical">if set to <c>true</c> [is critical].</param>
         /// <exception cref="ArgumentNullException"></exception>
-        public static void AddActiveMqMonitor(this MonitoringOptions options, string url, string username, string password, string resourceName = null, bool isCritical = false)
+        public static void AddActiveMqMonitor(this MonitoringOptions options, 
+            string url, string username, string password, 
+            string resourceName = null, 
+            bool isCritical = false)
         {
             if (url == null) throw new ArgumentNullException(nameof(url));
 
