@@ -20,4 +20,28 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq
         /// </summary>
         string Password { get; }
     }
+
+    /// <inheritdoc cref="IActiveMqMonitoringConfig"/>
+    public class ActiveMqMonitoringConfig : IActiveMqMonitoringConfig
+    {
+        /// <summary>
+        /// Constructor of ActiveMq Monitoring Config
+        /// </summary>
+        /// <param name="uri">valid ActiveMQ Uri</param>
+        /// <param name="user">username used to open connection</param>
+        /// <param name="password">password used to open connection</param>
+        public ActiveMqMonitoringConfig(Uri uri, string user, string password)
+        {
+            Uri = uri;
+            User = user;
+            Password = password;
+        }
+
+        /// <inheritdoc cref="IActiveMqMonitoringConfig.Uri"/>
+        public Uri Uri { get; }
+        /// <inheritdoc cref="IActiveMqMonitoringConfig.User"/>
+        public string User { get; }
+        /// <inheritdoc cref="IActiveMqMonitoringConfig.Password"/>
+        public string Password { get; }
+    }
 }
