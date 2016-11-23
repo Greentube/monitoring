@@ -79,7 +79,7 @@ namespace Greentube.Monitoring.AspNetCore
                         .MonitorEvents
                         .Select(e => new ResourceHealthStatus.Event
                         {
-                            Exception = e.Exception?.ToString(),
+                            Exception = e.Exception?.ToDisplayableString(),
                             Latency = e.Latency,
                             Up = e.IsUp,
                             VerificationTimeUtc = e.VerificationTimeUtc
