@@ -34,6 +34,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.SqlDb"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.SqlDb.Tests", "test\Greentube.Monitoring.SqlDb.Tests\Greentube.Monitoring.SqlDb.Tests.xproj", "{C87AE9B3-AEF3-4989-B6E6-DDE0CE181C40}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.Apache.NMS.ActiveMq", "src\Greentube.Monitoring.Apache.NMS.ActiveMq\Greentube.Monitoring.Apache.NMS.ActiveMq.xproj", "{D5DEE9C7-0A0A-4789-BD75-F78F5037C69A}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.Apache.NMS.ActiveMq.Tests", "test\Greentube.Monitoring.Apache.NMS.ActiveMq.Tests\Greentube.Monitoring.Apache.NMS.ActiveMq.Tests.xproj", "{DA5A72B9-EEED-4CFF-97A4-C5FE6BC90FB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -80,6 +84,14 @@ Global
 		{C87AE9B3-AEF3-4989-B6E6-DDE0CE181C40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C87AE9B3-AEF3-4989-B6E6-DDE0CE181C40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C87AE9B3-AEF3-4989-B6E6-DDE0CE181C40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5DEE9C7-0A0A-4789-BD75-F78F5037C69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5DEE9C7-0A0A-4789-BD75-F78F5037C69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5DEE9C7-0A0A-4789-BD75-F78F5037C69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5DEE9C7-0A0A-4789-BD75-F78F5037C69A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA5A72B9-EEED-4CFF-97A4-C5FE6BC90FB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA5A72B9-EEED-4CFF-97A4-C5FE6BC90FB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA5A72B9-EEED-4CFF-97A4-C5FE6BC90FB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA5A72B9-EEED-4CFF-97A4-C5FE6BC90FB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -95,5 +107,7 @@ Global
 		{B497DFCD-FAA7-4F48-B4F5-92B308E1C3E5} = {AE749C50-94C1-445C-B13F-E9D19372CBDB}
 		{53B1F8D7-0F01-4AD4-8A71-741E9592BCB0} = {843C8ED0-4792-40E0-8903-A3E5FF74A0A3}
 		{C87AE9B3-AEF3-4989-B6E6-DDE0CE181C40} = {AE749C50-94C1-445C-B13F-E9D19372CBDB}
+		{D5DEE9C7-0A0A-4789-BD75-F78F5037C69A} = {843C8ED0-4792-40E0-8903-A3E5FF74A0A3}
+		{DA5A72B9-EEED-4CFF-97A4-C5FE6BC90FB6} = {AE749C50-94C1-445C-B13F-E9D19372CBDB}
 	EndGlobalSection
 EndGlobal
