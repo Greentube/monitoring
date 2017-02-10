@@ -37,7 +37,7 @@ namespace Microsoft.AspNetCore.Builder
 
             IVersionService versionService = null;
             if (options.IncludeVersionInformation)
-                versionService = provider.GetRequiredService<IVersionService>();
+                versionService = provider.GetService<IVersionService>();
 
             return app.Map(
                 options.Path,

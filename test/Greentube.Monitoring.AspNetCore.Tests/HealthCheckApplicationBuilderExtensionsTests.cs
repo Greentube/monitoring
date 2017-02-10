@@ -13,10 +13,12 @@ namespace Greentube.Monitoring.AspNetCore.Tests
         {
             private IApplicationBuilder ApplicationBuilder { get; } = Substitute.For<IApplicationBuilder>();
             public IResourceStateCollector ResourceStateCollector { get; } = Substitute.For<IResourceStateCollector>();
+            public IVersionService VersionService { get; } = Substitute.For<IVersionService>();
             private IServiceProvider ServiceProvider { get; } = Substitute.For<IServiceProvider>();
 
             public Fixture()
             {
+                ServiceProvider.GetService(typeof(IVersionService)).Returns(VersionService);
                 ServiceProvider.GetService(typeof(IResourceStateCollector)).Returns(ResourceStateCollector);
                 ApplicationBuilder.ApplicationServices.Returns(ServiceProvider);
             }
