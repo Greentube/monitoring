@@ -12,7 +12,9 @@
     "Microsoft.Extensions.DependencyInjection": "1.0.0",
     "Greentube.Monitoring": "1.0.0",
     "Newtonsoft.Json": "9.0.1",
-    "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0"
+    "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0",
+    "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
+    "System.Diagnostics.Process": "4.3.0"
   },
 
   "frameworks": {
