@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Greentube.Monitoring;
+using Greentube.Monitoring.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
@@ -26,6 +27,7 @@ namespace Microsoft.AspNetCore.Builder
             optionsAction?.Invoke(options);
 
             return services
+                .AddSingleton<IVersionService, VersionService>()
                 .AddSingleton<IResourceMonitorConfiguration>(options)
                 .AddSingleton<IResourceStateCollector>(p =>
                 {

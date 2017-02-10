@@ -12,5 +12,13 @@ namespace Greentube.Monitoring.AspNetCore
         /// The path.
         /// </value>
         public string Path { get; [PublicAPI] set; } = "/health";
+
+        /// <summary>
+        /// Gets or sets a value indicating whether [include version information].
+        /// </summary>
+        /// <value>
+        /// <c>true</c> if [include version information]; otherwise, <c>false</c>.
+        /// </value>
+        public bool IncludeVersionInformation { get; [PublicAPI] set; } = true;
     }
 }

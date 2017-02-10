@@ -2,23 +2,12 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Reflection;
+using Greentube.Monitoring.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
 
-namespace Greentube.Monitoring.AspNetCore
+namespace Greentube.Monitoring
 {
-    /// <summary>
-    /// Version information of the running service
-    /// </summary>
-    public interface IVersionService
-    {
-        /// <summary>
-        /// Gets the version information of the running process.
-        /// </summary>
-        /// <returns></returns>
-        VersionInformation GetVersionInformation();
-    }
-
     /// <summary>
     /// Version Service
     /// </summary>

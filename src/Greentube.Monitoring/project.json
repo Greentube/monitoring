@@ -8,7 +8,10 @@
   "dependencies": {
     "NETStandard.Library": "1.3.0",
     "Microsoft.Extensions.DependencyInjection": "1.0.0",
-    "Microsoft.Extensions.Logging.Abstractions": "1.0.0"
+    "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
+    "Microsoft.Extensions.PlatformAbstractions": "1.0.0",
+    "Microsoft.AspNetCore.Hosting.Abstractions": "1.0.0",
+    "System.Diagnostics.Process": "4.3.0"
   },
 
   "frameworks": {

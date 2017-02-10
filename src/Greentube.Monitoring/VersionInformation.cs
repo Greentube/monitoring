@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Greentube.Monitoring.AspNetCore
+namespace Greentube.Monitoring
 {
     /// <summary>
     /// The Version information of the running service

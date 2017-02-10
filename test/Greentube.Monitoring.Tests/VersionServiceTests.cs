@@ -2,11 +2,11 @@
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.PlatformAbstractions;
 using NSubstitute;
 using Xunit;
-using Microsoft.Extensions.PlatformAbstractions;
 
-namespace Greentube.Monitoring.AspNetCore.Tests
+namespace Greentube.Monitoring.Tests
 {
     public class VersionServiceTests
     {
