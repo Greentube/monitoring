@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using Greentube.Monitoring;
-using Greentube.Monitoring.AspNetCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
