@@ -35,9 +35,13 @@ namespace Microsoft.AspNetCore.Builder
             var options = new HealthCheckOptions();
             optionsSetup?.Invoke(options);
 
+            IVersionService versionService = null;
+            if (options.IncludeVersionInformation)
+                versionService = provider.GetService<IVersionService>();
+
             return app.Map(
                 options.Path,
-                m => m.UseMiddleware<HealthCheckMiddleware>(collector));
+                m => m.UseMiddleware<HealthCheckMiddleware>(collector, versionService));
         }
     }
 }

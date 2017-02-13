@@ -14,20 +14,26 @@ namespace Greentube.Monitoring.AspNetCore
     {
         private readonly RequestDelegate _next;
         private readonly IResourceStateCollector _collector;
+        private readonly IVersionService _versionService;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HealthCheckMiddleware"/> class.
         /// </summary>
         /// <param name="next">The next.</param>
         /// <param name="collector">The collector.</param>
+        /// <param name="versionService">Version Service</param>
         /// <exception cref="ArgumentNullException">
         /// </exception>
-        public HealthCheckMiddleware(RequestDelegate next, IResourceStateCollector collector)
+        public HealthCheckMiddleware(
+            RequestDelegate next, 
+            IResourceStateCollector collector,
+            IVersionService versionService = null)
         {
             if (next == null) throw new ArgumentNullException(nameof(next));
             if (collector == null) throw new ArgumentNullException(nameof(collector));
             _next = next;
             _collector = collector;
+            _versionService = versionService;
         }
 
         /// <summary>
@@ -90,6 +96,7 @@ namespace Greentube.Monitoring.AspNetCore
             var body = new HealthCheckDetailedResponse
             {
                 Up = isNodeUp,
+                VersionInformation = _versionService?.GetVersionInformation(),
                 ResourceStates = models
             };
 

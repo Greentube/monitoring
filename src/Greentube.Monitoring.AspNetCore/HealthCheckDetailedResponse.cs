@@ -16,6 +16,14 @@ namespace Greentube.Monitoring.AspNetCore
         public bool Up { get; set; }
 
         /// <summary>
+        /// Gets or sets the version information.
+        /// </summary>
+        /// <value>
+        /// The version information.
+        /// </value>
+        public VersionInformation VersionInformation { get; set; }
+
+        /// <summary>
         /// Gets or sets the resource states.
         /// </summary>
         /// <value>
