@@ -1,4 +1,4 @@
-namespace Greentube.Monitoring.AspNetCore
+namespace Greentube.Monitoring
 {
     /// <summary>
     /// Version information of the running service
