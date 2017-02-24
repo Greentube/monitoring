@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Reflection;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
@@ -33,7 +34,8 @@ namespace Greentube.Monitoring
                 assemblyInformationalVersion: informationalVersion,
                 environmentName: hostingEnvironment.EnvironmentName,
                 runtimeFramework: PlatformServices.Default.Application.RuntimeFramework.ToString(),
-                startupTimeUtc: Process.GetCurrentProcess().StartTime.ToUniversalTime()
+                startupTimeUtc: Process.GetCurrentProcess().StartTime.ToUniversalTime(),
+                machineName: Dns.GetHostName()
             );
         }
 
