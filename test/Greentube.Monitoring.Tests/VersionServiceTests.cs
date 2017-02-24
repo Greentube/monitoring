@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Hosting;
@@ -29,6 +30,7 @@ namespace Greentube.Monitoring.Tests
             Assert.True(Regex.IsMatch(actual.AssemblyInformationalVersion, "[0-9a-fA-F]{5,40}"), 
                 $"AssemblyInformationalVersion: {actual.AssemblyInformationalVersion} doesn't contain a valid SHA1.");
             Assert.Same(expectedEnvionmentName, actual.EnvironmentName);
+            Assert.Equal(Dns.GetHostName(), actual.MachineName);
             Assert.True(actual.StartupTimeUtc != default(DateTimeOffset));
             Assert.Equal(PlatformServices.Default.Application.RuntimeFramework.ToString(), actual.RuntimeFramework);
         }

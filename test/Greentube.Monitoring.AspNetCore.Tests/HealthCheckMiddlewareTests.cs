@@ -209,6 +209,7 @@ namespace Greentube.Monitoring.AspNetCore.Tests
             Assert.Equal(expected.AssemblyFileVersion, actual.AssemblyFileVersion);
             Assert.Equal(expected.AssemblyInformationalVersion, actual.AssemblyInformationalVersion);
             Assert.Equal(expected.EnvironmentName, actual.EnvironmentName);
+            Assert.Equal(expected.MachineName, actual.MachineName);
             Assert.Equal(expected.RuntimeFramework, actual.RuntimeFramework);
             Assert.Equal(expected.StartupTimeUtc, actual.StartupTimeUtc);
         }

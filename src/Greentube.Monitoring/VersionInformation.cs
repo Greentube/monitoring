@@ -54,6 +54,14 @@ namespace Greentube.Monitoring
         public string AssemblyInformationalVersion { get; }
 
         /// <summary>
+        /// Gets the name of the machine.
+        /// </summary>
+        /// <value>
+        /// The name of the machine.
+        /// </value>
+        public string MachineName { get; }
+
+        /// <summary>
         /// Initializes a new instance of the <see cref="VersionInformation"/> class.
         /// </summary>
         /// <param name="environmentName">Name of the environment.</param>
@@ -61,18 +69,21 @@ namespace Greentube.Monitoring
         /// <param name="runtimeFramework">The runtime framework.</param>
         /// <param name="assemblyFileVersion">The assembly file version.</param>
         /// <param name="assemblyInformationalVersion">The assembly informational version.</param>
+        /// <param name="machineName">Machine Name</param>
         public VersionInformation(
             string environmentName = null,
             DateTimeOffset startupTimeUtc = default(DateTimeOffset),
             string runtimeFramework = null,
             string assemblyFileVersion = null,
-            string assemblyInformationalVersion = null)
+            string assemblyInformationalVersion = null,
+            string machineName = null)
         {
             EnvironmentName = environmentName;
             StartupTimeUtc = startupTimeUtc;
             RuntimeFramework = runtimeFramework;
             AssemblyFileVersion = assemblyFileVersion;
             AssemblyInformationalVersion = assemblyInformationalVersion;
+            MachineName = machineName;
         }
     }
 }
