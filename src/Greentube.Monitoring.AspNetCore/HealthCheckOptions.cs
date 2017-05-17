@@ -1,3 +1,5 @@
+using System;
+
 namespace Greentube.Monitoring.AspNetCore
 {
     /// <summary>
@@ -20,5 +22,13 @@ namespace Greentube.Monitoring.AspNetCore
         /// <c>true</c> if [include version information]; otherwise, <c>false</c>.
         /// </value>
         public bool IncludeVersionInformation { get; [PublicAPI] set; } = true;
+
+        /// <summary>
+        /// The strategy to convert the Exception instance to the response string
+        /// </summary>
+        /// <value>
+        /// To string strategy.
+        /// </value>
+        public Func<Exception, string> ToStringStrategy { get; [PublicAPI] set; }
     }
 }
