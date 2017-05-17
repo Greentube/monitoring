@@ -41,7 +41,7 @@ namespace Microsoft.AspNetCore.Builder
 
             return app.Map(
                 options.Path,
-                m => m.UseMiddleware<HealthCheckMiddleware>(collector, versionService, options.ToStringStrategy));
+                m => m.UseMiddleware<HealthCheckMiddleware>(collector, options.ToStringStrategy, versionService));
         }
     }
 }

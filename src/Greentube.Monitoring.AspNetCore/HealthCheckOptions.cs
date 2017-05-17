@@ -29,6 +29,6 @@ namespace Greentube.Monitoring.AspNetCore
         /// <value>
         /// To string strategy.
         /// </value>
-        public Func<Exception, string> ToStringStrategy { get; [PublicAPI] set; }
+        public Func<Exception, string> ToStringStrategy { get; [PublicAPI] set; } = e => e?.ToDisplayableString();
     }
 }

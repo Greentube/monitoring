@@ -29,15 +29,16 @@ namespace Greentube.Monitoring.AspNetCore
         public HealthCheckMiddleware(
             RequestDelegate next,
             IResourceStateCollector collector,
-            IVersionService versionService = null,
-            Func<Exception, string> toStringStrategy = null)
+            Func<Exception, string> toStringStrategy,
+            IVersionService versionService = null)
         {
             if (next == null) throw new ArgumentNullException(nameof(next));
             if (collector == null) throw new ArgumentNullException(nameof(collector));
+            if (toStringStrategy == null) throw new ArgumentNullException(nameof(toStringStrategy));
             _next = next;
             _collector = collector;
+            _toStringStrategy = toStringStrategy;
             _versionService = versionService;
-            _toStringStrategy = toStringStrategy ?? (e => e?.ToDisplayableString());
         }
 
         /// <summary>

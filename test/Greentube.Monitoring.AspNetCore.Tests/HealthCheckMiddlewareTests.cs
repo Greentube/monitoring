@@ -30,7 +30,8 @@ namespace Greentube.Monitoring.AspNetCore.Tests
 
             public HealthCheckMiddleware GetSut()
             {
-                return new HealthCheckMiddleware(RequestDelegate, ResourceStateCollector, VersionService);
+                var options = new HealthCheckOptions();
+                return new HealthCheckMiddleware(RequestDelegate, ResourceStateCollector, options.ToStringStrategy, VersionService);
             }
 
             public T ReadResponseBody<T>(T type)
