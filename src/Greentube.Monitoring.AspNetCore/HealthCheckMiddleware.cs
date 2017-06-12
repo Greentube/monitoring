@@ -15,6 +15,7 @@ namespace Greentube.Monitoring.AspNetCore
         private readonly RequestDelegate _next;
         private readonly IResourceStateCollector _collector;
         private readonly IVersionService _versionService;
+        private readonly Func<Exception, string> _toStringStrategy;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="HealthCheckMiddleware"/> class.
@@ -22,17 +23,21 @@ namespace Greentube.Monitoring.AspNetCore
         /// <param name="next">The next.</param>
         /// <param name="collector">The collector.</param>
         /// <param name="versionService">Version Service</param>
+        /// <param name="toStringStrategy">Strategy to convert the Exception instance to string</param>
         /// <exception cref="ArgumentNullException">
         /// </exception>
         public HealthCheckMiddleware(
-            RequestDelegate next, 
+            RequestDelegate next,
             IResourceStateCollector collector,
+            Func<Exception, string> toStringStrategy,
             IVersionService versionService = null)
         {
             if (next == null) throw new ArgumentNullException(nameof(next));
             if (collector == null) throw new ArgumentNullException(nameof(collector));
+            if (toStringStrategy == null) throw new ArgumentNullException(nameof(toStringStrategy));
             _next = next;
             _collector = collector;
+            _toStringStrategy = toStringStrategy;
             _versionService = versionService;
         }
 
@@ -85,7 +90,7 @@ namespace Greentube.Monitoring.AspNetCore
                         .MonitorEvents
                         .Select(e => new ResourceHealthStatus.Event
                         {
-                            Exception = e.Exception?.ToDisplayableString(),
+                            Exception = _toStringStrategy(e.Exception),
                             Latency = e.Latency,
                             Up = e.IsUp,
                             VerificationTimeUtc = e.VerificationTimeUtc
