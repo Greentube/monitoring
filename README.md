@@ -2,7 +2,7 @@
 
 Greentube.Monitoring is a library that simplifies monitoring dependencies that affect your application's availability.
 
-It allows you to add one or more _resource monitors_  and verify with a single call if any _critical_ resource is down, which in turn makes reports your application as unavailable.
+It allows you to add one or more _resource monitors_  and verify with a single call if any _critical_ resource is down, which in turn reports your application as unavailable.
 
 With a few lines of code you get a health check endpoint to reply to a load balancer or a monitoring tool that your application is ready to take work load or not.
 
