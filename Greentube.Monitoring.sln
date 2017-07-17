@@ -1,23 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26606.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring", "src\Greentube.Monitoring\Greentube.Monitoring.xproj", "{2BB29E61-02DD-4745-A3A2-145711D5FFB8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{843C8ED0-4792-40E0-8903-A3E5FF74A0A3}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.MongoDB", "src\Greentube.Monitoring.MongoDB\Greentube.Monitoring.MongoDB.xproj", "{5D358A61-8266-4739-845D-E6E973B71995}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.Redis", "src\Greentube.Monitoring.Redis\Greentube.Monitoring.Redis.xproj", "{78A6706F-599A-4CBD-B867-C6FE053788D3}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{AE749C50-94C1-445C-B13F-E9D19372CBDB}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.MongoDB.Tests", "test\Greentube.Monitoring.MongoDB.Tests\Greentube.Monitoring.MongoDB.Tests.xproj", "{3AB84CBA-75AF-4027-A398-0AB8CD4C004E}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.Redis.Tests", "test\Greentube.Monitoring.Redis.Tests\Greentube.Monitoring.Redis.Tests.xproj", "{FF559CD8-5FFE-4460-A6BC-84F8F7A05CB7}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.Tests", "test\Greentube.Monitoring.Tests\Greentube.Monitoring.Tests.xproj", "{06356707-146F-48F7-9C18-7E5D3D67E765}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{11D063CA-B13E-4EFB-9000-A47BA4B2AEC7}"
 	ProjectSection(SolutionItems) = preProject
@@ -26,17 +14,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		GlobalAssemblyInfo.cs = GlobalAssemblyInfo.cs
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.AspNetCore", "src\Greentube.Monitoring.AspNetCore\Greentube.Monitoring.AspNetCore.xproj", "{6A43C6FD-75F7-4955-847E-E7F189859244}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring", "src\Greentube.Monitoring\Greentube.Monitoring.csproj", "{2BB29E61-02DD-4745-A3A2-145711D5FFB8}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.AspNetCore.Tests", "test\Greentube.Monitoring.AspNetCore.Tests\Greentube.Monitoring.AspNetCore.Tests.xproj", "{B497DFCD-FAA7-4F48-B4F5-92B308E1C3E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.MongoDB", "src\Greentube.Monitoring.MongoDB\Greentube.Monitoring.MongoDB.csproj", "{5D358A61-8266-4739-845D-E6E973B71995}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.SqlDb", "src\Greentube.Monitoring.SqlDb\Greentube.Monitoring.SqlDb.xproj", "{53B1F8D7-0F01-4AD4-8A71-741E9592BCB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.Redis", "src\Greentube.Monitoring.Redis\Greentube.Monitoring.Redis.csproj", "{78A6706F-599A-4CBD-B867-C6FE053788D3}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.SqlDb.Tests", "test\Greentube.Monitoring.SqlDb.Tests\Greentube.Monitoring.SqlDb.Tests.xproj", "{C87AE9B3-AEF3-4989-B6E6-DDE0CE181C40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.MongoDB.Tests", "test\Greentube.Monitoring.MongoDB.Tests\Greentube.Monitoring.MongoDB.Tests.csproj", "{3AB84CBA-75AF-4027-A398-0AB8CD4C004E}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.Apache.NMS.ActiveMq", "src\Greentube.Monitoring.Apache.NMS.ActiveMq\Greentube.Monitoring.Apache.NMS.ActiveMq.xproj", "{D5DEE9C7-0A0A-4789-BD75-F78F5037C69A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.Redis.Tests", "test\Greentube.Monitoring.Redis.Tests\Greentube.Monitoring.Redis.Tests.csproj", "{FF559CD8-5FFE-4460-A6BC-84F8F7A05CB7}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Greentube.Monitoring.Apache.NMS.ActiveMq.Tests", "test\Greentube.Monitoring.Apache.NMS.ActiveMq.Tests\Greentube.Monitoring.Apache.NMS.ActiveMq.Tests.xproj", "{DA5A72B9-EEED-4CFF-97A4-C5FE6BC90FB6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.Tests", "test\Greentube.Monitoring.Tests\Greentube.Monitoring.Tests.csproj", "{06356707-146F-48F7-9C18-7E5D3D67E765}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.AspNetCore", "src\Greentube.Monitoring.AspNetCore\Greentube.Monitoring.AspNetCore.csproj", "{6A43C6FD-75F7-4955-847E-E7F189859244}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.AspNetCore.Tests", "test\Greentube.Monitoring.AspNetCore.Tests\Greentube.Monitoring.AspNetCore.Tests.csproj", "{B497DFCD-FAA7-4F48-B4F5-92B308E1C3E5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.SqlDb", "src\Greentube.Monitoring.SqlDb\Greentube.Monitoring.SqlDb.csproj", "{53B1F8D7-0F01-4AD4-8A71-741E9592BCB0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.SqlDb.Tests", "test\Greentube.Monitoring.SqlDb.Tests\Greentube.Monitoring.SqlDb.Tests.csproj", "{C87AE9B3-AEF3-4989-B6E6-DDE0CE181C40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.Apache.NMS.ActiveMq", "src\Greentube.Monitoring.Apache.NMS.ActiveMq\Greentube.Monitoring.Apache.NMS.ActiveMq.csproj", "{D5DEE9C7-0A0A-4789-BD75-F78F5037C69A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.Apache.NMS.ActiveMq.Tests", "test\Greentube.Monitoring.Apache.NMS.ActiveMq.Tests\Greentube.Monitoring.Apache.NMS.ActiveMq.Tests.csproj", "{DA5A72B9-EEED-4CFF-97A4-C5FE6BC90FB6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
