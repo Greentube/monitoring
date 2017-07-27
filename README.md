@@ -1,5 +1,7 @@
 # Greentube.Monitoring 
 
+Linux and MacOS: [![Build Status](https://travis-ci.org/Greentube/monitoring.svg?branch=master)](https://travis-ci.org/Greentube/monitoring)
+
 Greentube.Monitoring is a library that simplifies monitoring dependencies that affect your application's availability.
 
 It allows you to add one or more _resource monitors_  and verify with a single call if any _critical_ resource is down, which in turn reports your application as unavailable.
