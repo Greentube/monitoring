@@ -3,8 +3,8 @@ init:
   - git config --global core.autocrlf true
 before_build:
   - dotnet restore
-build:
-  verbosity: minimal
+build_script:
+  - cmd: for /f %a in ('dir /b test') do dotnet test -c Release test/%a/%a.csproj
 environment:
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
