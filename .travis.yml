@@ -11,4 +11,4 @@ env:
     - DOTNET_SKIP_FIRST_TIME_EXPERIENCE=true
     - DOTNET_CLI_TELEMETRY_OPTOUT=1
 script:
- - dotnet restore && ls test/**/*.csproj | grep -v 'ActiveMq' | xargs -L1 dotnet test -c Release
+ - ulimit -n 512; dotnet restore && ls test/**/*.csproj | grep -v 'ActiveMq' | xargs -L1 dotnet test -c Release
