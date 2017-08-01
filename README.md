@@ -1,4 +1,4 @@
-# Greentube.Monitoring [![Build Status](https://travis-ci.org/Greentube/monitoring.svg?branch=master)](https://travis-ci.org/Greentube/monitoring) [![Build status](https://ci.appveyor.com/api/projects/status/9ecqvy6vhf3hm49b/branch/master?svg=true)](https://ci.appveyor.com/project/bruno-garcia/monitoring/branch/master)
+# Greentube.Monitoring [![Build Status](https://travis-ci.org/Greentube/monitoring.svg?branch=master)](https://travis-ci.org/Greentube/monitoring) [![Build status](https://ci.appveyor.com/api/projects/status/42eufhcmhwslimn5/branch/master?svg=true)](https://ci.appveyor.com/project/Greentube/monitoring/branch/master)
 
 Greentube.Monitoring is a library that simplifies monitoring dependencies that affect your application's availability.
 
