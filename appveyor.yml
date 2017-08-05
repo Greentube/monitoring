@@ -3,9 +3,11 @@ init:
   - git config --global core.autocrlf true
 before_build:
   - dotnet restore
+# Will build dependencies in release (optimize and portable pdbs) mode:
 build_script:
   - cmd: for /f %%a in ('dir /b test') do dotnet test -c Release test/%%a/%%a.csproj
-test_script:
+# Will build in Coverage mode (full pdbs) and upload coverage to Codecov
+on_success:
   - ps: coverage.ps1 -UploadCodecov
 environment:
   global:
