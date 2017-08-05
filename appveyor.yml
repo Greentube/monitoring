@@ -8,7 +8,7 @@ build_script:
   - cmd: for /f %%a in ('dir /b test') do dotnet test -c Release test/%%a/%%a.csproj
 # Will build in Coverage mode (full pdbs) and upload coverage to Codecov
 on_success:
-  - ps: coverage.ps1 -UploadCodecov
+  - ps: .\coverage.ps1 -UploadCodecov
 environment:
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
