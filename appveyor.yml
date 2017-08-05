@@ -5,6 +5,8 @@ before_build:
   - dotnet restore
 build_script:
   - cmd: for /f %%a in ('dir /b test') do dotnet test -c Release test/%%a/%%a.csproj
+test_script:
+  - ps: coverage.ps1 -UploadCodecov
 environment:
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true

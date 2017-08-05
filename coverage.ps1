@@ -1,4 +1,7 @@
-Param ([switch] $generateReport)
+Param (
+  [switch] $generateReport,
+  [switch] $uploadCodecov
+  )
 
 $currentPath = Split-Path $MyInvocation.MyCommand.Path
 $coverageOutputDirectory = Join-Path $currentPath "coverage"
@@ -37,4 +40,10 @@ If ($generateReport) {
     -reports:$coverageFile `
     -targetdir:$coverageOutputDirectory `
     -verbosity:Error
+}
+
+If ($uploadCodeCov) {
+  nuget install -Verbosity quiet -OutputDirectory packages -Version 1.0.1 Codecov
+  $Codecov = "packages\Codecov.1.0.1\tools\Codecov.exe"
+  cmd.exe /c $Codecov -f $coverageFile
 }
