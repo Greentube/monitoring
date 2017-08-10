@@ -12,17 +12,19 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq
     /// </summary>
     public class ActiveMqPingHealthCheckStrategy : IHealthCheckStrategy
     {
-        private readonly string destinationName = "healthCheckPingQueue";
+        private readonly string destinationName;
         private readonly IConnectionFactory connectionFactory;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ActiveMqPingHealthCheckStrategy"/> class.
         /// </summary>
         /// <param name="connectionFactory">Connection factory object</param>
-        public ActiveMqPingHealthCheckStrategy(IConnectionFactory connectionFactory)
+        /// <param name="destinationName">DestinationQueueName</param>
+        public ActiveMqPingHealthCheckStrategy(IConnectionFactory connectionFactory, string destinationName)
         {
             if (connectionFactory == null) throw new ArgumentNullException(nameof(connectionFactory));
             this.connectionFactory = connectionFactory;
+            this.destinationName = destinationName;
         }
 
 
