@@ -29,6 +29,7 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq
                 var config = configFactory(configuration, provider);
 
                 if (config.Uri == null) throw new ArgumentNullException(nameof(config.Uri));
+                if (config.QueueName == null) throw new ArgumentNullException(nameof(config.QueueName));
 
                 var connectionFactory = new ConnectionFactory()
                 {
@@ -36,7 +37,7 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq
                     UserName = config.User,
                     Password = config.Password
                 };
-                return new ActiveMqPingMonitor(resourceName, connectionFactory, configuration, provider.GetRequiredService<ILogger<ActiveMqPingMonitor>>(), isCritical);
+                return new ActiveMqPingMonitor(resourceName, connectionFactory, config.QueueName, configuration, provider.GetRequiredService<ILogger<ActiveMqPingMonitor>>(), isCritical);
             });
         }
 
@@ -45,13 +46,14 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq
         /// </summary>
         /// <param name="options">The options.</param>
         /// <param name="url">Url used to connect to ActiveMQ</param>
+        /// <param name="queueName">Queue name where to put ping messages</param>
         /// <param name="username">User used to connect to ActiveMQ</param>
         /// <param name="password">Password used to connect to ActiveMQ</param>
         /// <param name="resourceName">Name of the resource.</param>
         /// <param name="isCritical">if set to <c>true</c> [is critical].</param>
         /// <exception cref="ArgumentNullException"></exception>
         public static void AddActiveMqMonitor(this MonitoringOptions options, 
-            string url, string username, string password, 
+            string url, string queueName, string username, string password, 
             string resourceName = null, 
             bool isCritical = false)
         {
@@ -63,7 +65,7 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq
                     BrokerUri = new Uri(url),
                     UserName = username,
                     Password = password
-                }, configuration, provider.GetRequiredService<ILogger<ActiveMqPingMonitor>>(), isCritical));
+                }, queueName, configuration, provider.GetRequiredService<ILogger<ActiveMqPingMonitor>>(), isCritical));
         }
     }
 }

@@ -14,10 +14,11 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq.Tests
         private class Fixture
         {
             public IConnectionFactory ConnectionFactory { get; set; } = Substitute.For<IConnectionFactory>();
+            public string DestinationQueueName { get; set; } = "pingQueue";
 
             public ActiveMqPingHealthCheckStrategy GetSut()
             {
-                return new ActiveMqPingHealthCheckStrategy(ConnectionFactory);
+                return new ActiveMqPingHealthCheckStrategy(ConnectionFactory, DestinationQueueName);
             }
         }
 
@@ -83,7 +84,7 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq.Tests
 
             _fixture.ConnectionFactory.CreateConnection().Returns(connection);
             connection.CreateSession().Returns(session);
-            session.CreateProducer(Arg.Any<IDestination>()).Returns(producer);
+            session.CreateProducer(Arg.Is<IQueue>(destination => destination.QueueName == _fixture.DestinationQueueName)).Returns(producer);
 
             var target = _fixture.GetSut();
             var result = await target.Check(CancellationToken.None);
