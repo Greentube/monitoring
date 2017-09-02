@@ -4,6 +4,7 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Greentube.Monitoring.AspNetCore</AssemblyName>
+    <PackageVersion>0.0.0</PackageVersion>
     <PackageId>Greentube.Monitoring.AspNetCore</PackageId>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>

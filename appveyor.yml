@@ -31,5 +31,5 @@ dotnet_csproj:
   version: '{version}'
   package_version: '{version}'
 artifacts:
-- path: src
-  name: whole-src
+- path: '**\*.nupkg'
+  name: greentube-monitoring-nuget-packages
