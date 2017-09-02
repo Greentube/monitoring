@@ -9,6 +9,8 @@ build_script:
 # Will build in Coverage mode (full pdbs) and upload coverage to Codecov
 on_success:
   - ps: .\coverage.ps1 -UploadCodecov
+# packing the current Release build of all projects under src/
+  - cmd: for /f %%a in ('dir /b src') do dotnet pack --no-build -c Release src/%%a/%%a.csproj
 environment:
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
@@ -30,4 +32,3 @@ dotnet_csproj:
 artifacts:
 - path: src
   name: whole-src
-publish_nuget: true
