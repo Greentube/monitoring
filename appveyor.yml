@@ -6,6 +6,9 @@ before_build:
 # Will build dependencies in release (optimize and portable pdbs) mode:
 build_script:
   - cmd: for /f %%a in ('dir /b test') do dotnet test -c Release test/%%a/%%a.csproj
+after_build:
+# packing the current Release build of all projects under src/
+  - cmd: for /f %%a in ('dir /b src') do dotnet pack --no-build -c Release src/%%a/%%a.csproj
 # Will build in Coverage mode (full pdbs) and upload coverage to Codecov
 on_success:
   - ps: .\coverage.ps1 -UploadCodecov
@@ -16,3 +19,17 @@ environment:
 test: off
 deploy: off
 os: Visual Studio 2017
+assembly_info:
+  patch: true
+  file: GlobalAssemblyInfo.cs
+  assembly_version: '{version}'
+  assembly_file_version: '{version}'
+  assembly_informational_version: '{branch} - $(APPVEYOR_REPO_COMMIT)'
+dotnet_csproj:
+  patch: true
+  file: 'src\**\*.csproj'
+  version: '{version}'
+  package_version: '{version}'
+artifacts:
+- path: '**\*.nupkg'
+  name: greentube-monitoring-nuget-packages

@@ -6,5 +6,5 @@
 [assembly: AssemblyVersion("0.0.0.0")]
 [assembly: AssemblyFileVersion("0.0.0.0")]
 
-// Replaced by TeamCity's Build Feature: Assembly Info Patcher
+// Replaced by AppVeyor (see appveyor.yml)
 [assembly: AssemblyInformationalVersion("branch - 0000000000000000000000000000000000000000")]

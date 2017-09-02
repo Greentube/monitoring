@@ -4,7 +4,12 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Greentube.Monitoring.AspNetCore</AssemblyName>
+    <PackageVersion>0.0.0</PackageVersion>
+    <Authors>Bruno Garcia</Authors>
     <PackageId>Greentube.Monitoring.AspNetCore</PackageId>
+    <Description>Health-check middleware for ASP.NET Core applications. The endpoint reports the state of the probes created by Greentube.Monitoring packages like Redis, MongoDB, SQL Server, HTTP calls (i.e: REST services) and more.</Description>
+    <PackageTags>aspnetcore;middleware;health-checks;monitor;health;load-balancer</PackageTags>
+    <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>

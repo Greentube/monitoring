@@ -3,12 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net46</TargetFramework>
     <NoWarn>$(NoWarn);1591</NoWarn>
-    <AssemblyName>Greentube.Monitoring.Apache.NMS.ActiveMq.Tests</AssemblyName>
-    <PackageId>Greentube.Monitoring.Apache.NMS.ActiveMq.Tests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
-    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
-    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
   </PropertyGroup>
 
   <ItemGroup>

@@ -5,6 +5,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Greentube.Monitoring.Apache.NMS.ActiveMq</AssemblyName>
     <PackageId>Greentube.Monitoring.Apache.NMS.ActiveMq</PackageId>
+    <PackageVersion>0.0.0</PackageVersion>
+    <Authors>Pawel Mezykowski</Authors>
+    <Description>Apache NMS ActiveMQ health monitor for Greentube.Monitoring allowing probes and health check of ActiveMQ brokers</Description>
+    <PackageTags>activemq;health-checks;monitor;health;load-balancer</PackageTags>
+    <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>

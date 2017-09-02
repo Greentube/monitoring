@@ -20,7 +20,7 @@ namespace Greentube.Monitoring.Tests
             environment.EnvironmentName.Returns(expectedEnvionmentName);
 
             // Act
-            var target = new VersionService(environment, GetType().GetTypeInfo().Assembly);
+            var target = new VersionService(environment, typeof(VersionService).GetTypeInfo().Assembly);
             var actual = target.GetVersionInformation();
 
             // Assert
