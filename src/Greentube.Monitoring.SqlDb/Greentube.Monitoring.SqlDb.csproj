@@ -5,7 +5,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Greentube.Monitoring.SqlDb</AssemblyName>
     <PackageVersion>0.0.0</PackageVersion>
+    <Authors>Pawel Mezykowski</Authors>
     <PackageId>Greentube.Monitoring.SqlDb</PackageId>
+    <Description>SQL Server health monitor for Greentube.Monitoring allowing probes and health check of SQL Server instances</Description>
+    <PackageTags>sql-server;mssql;health-checks;monitor;health;load-balancer</PackageTags>
+    <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>

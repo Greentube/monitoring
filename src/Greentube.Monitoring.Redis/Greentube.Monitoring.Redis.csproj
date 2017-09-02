@@ -5,7 +5,11 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Greentube.Monitoring.Redis</AssemblyName>
     <PackageVersion>0.0.0</PackageVersion>
+    <Authors>Bruno Garcia</Authors>
     <PackageId>Greentube.Monitoring.Redis</PackageId>
+    <Description>Redis health monitor for Greentube.Monitoring allowing probes and health check of Redis databases</Description>
+    <PackageTags>redis;health-checks;monitor;health;load-balancer</PackageTags>
+    <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
     <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netstandard1.3' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
