@@ -27,3 +27,6 @@ dotnet_csproj:
   file: 'src\**\*.csproj'
   version: '{version}'
   package_version: '{version}'
+artifacts:
+- path: src
+  name: whole-src
