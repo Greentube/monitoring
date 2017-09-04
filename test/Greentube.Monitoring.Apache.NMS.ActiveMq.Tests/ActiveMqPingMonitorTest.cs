@@ -20,12 +20,14 @@ namespace Greentube.Monitoring.Apache.NMS.ActiveMq.Tests
 
             private bool IsCritical { get; } = true;
             public string ResourceName { private get; set; } = "ActiveMQ 123";
+            public string DestinationQueueName { private get; set; } = "pingQueue";
 
             public ActiveMqPingMonitor GetSut()
             {
                 return new ActiveMqPingMonitor(
                     ResourceName,
                     ConnectionFactory,
+                    DestinationQueueName,
                     ResourceMonitorConfiguration,
                     Logger,
                     IsCritical);
