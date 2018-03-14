@@ -6,7 +6,7 @@
     <AssemblyName>Greentube.Monitoring.AspNetCore.Tests</AssemblyName>
     <PackageId>Greentube.Monitoring.AspNetCore.Tests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>2.0.0</RuntimeFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>

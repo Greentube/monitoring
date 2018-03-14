@@ -6,7 +6,7 @@
     <AssemblyName>Greentube.Monitoring.SqlDb.Tests</AssemblyName>
     <PackageId>Greentube.Monitoring.SqlDb.Tests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
-    <RuntimeFrameworkVersion>1.0.4</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>2.0.0</RuntimeFrameworkVersion>
   </PropertyGroup>
 
   <ItemGroup>
