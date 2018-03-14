@@ -9,7 +9,7 @@
     <PackageId>Greentube.Monitoring.MongoDB</PackageId>
     <Description>MongoDB health monitor for Greentube.Monitoring allowing probes and health check of Mongo databases</Description>
     <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
-    <NetStandardImplicitPackageVersion>1.6.0</NetStandardImplicitPackageVersion>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
