@@ -30,6 +30,8 @@ namespace Microsoft.AspNetCore.Builder
             Assembly entryAssembly,
             Action<MonitoringOptions> optionsAction = null)
         {
+            services.AddSingleton<IShutdownStatusProvider>(new ShutdownStatusProvider());
+
             var options = new MonitoringOptions();
             optionsAction?.Invoke(options);
 
