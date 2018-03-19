@@ -98,6 +98,37 @@ public class HealthController : Controller
 }
 ```
 
+Usually you would like to provide the possibility of application graceful shutdown
+
+That means that application should stop receiving requests while trying to complete running requests.
+
+For that you need to tell load balancer to take out the node
+
+You need to call `Shutdown` method on `ILoadBalancerStatusProvider` 
+
+Typical code can look like that (example is from hosting ASP.NET MVC Core application in Windows service)
+```csharp
+    public class GSSService : WebHostService
+    {
+        private readonly INrgsLogger _logger;
+        private readonly ILoadBalancerStatusProvider _loadBalancerStatusProvider;
+
+        public GSSService(IWebHost host) : base(host)
+        {
+            _logger = host.Services.GetRequiredService<INrgsLogger>();
+            _loadBalancerStatusProvider = host.Services.GetRequiredService<Startup.ILoadBalancerStatusProvider>();
+        }
+
+        protected override void OnStopping()
+        {
+            _loadBalancerStatusProvider.Shutdown 
+            Thread.Sleep(30000); // waiting for LB to pickup the change
+
+            _logger.Information(LogCategory.ApplicationLifecycleLog, "OnStopping method called.");
+            base.OnStopping();
+        }
+    }
+```
 # License
 
 Licensed under MIT
