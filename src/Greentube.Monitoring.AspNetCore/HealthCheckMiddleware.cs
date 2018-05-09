@@ -95,6 +95,7 @@ namespace Greentube.Monitoring.AspNetCore
                             Up = e.IsUp,
                             VerificationTimeUtc = e.VerificationTimeUtc
                         })
+                        .OrderByDescending(e=>e.VerificationTimeUtc)
                 });
             }
 
