@@ -128,7 +128,15 @@ Typical code can look like that (example is from hosting ASP.NET MVC Core applic
             base.OnStopping();
         }
     }
+
 ```
+
+For a logging, standard ILogger<T> is used implicitly via DI, so for example HttpMonitoringLogger will use 
+ILogger<HttpResourceMonitor>. 
+
+Mostly used log level is Information (or Trace for debug), but for *Monitor it's a special case:
+if *Monitor is Down and it is critical then level is ERROR, for non-critical is WARNING.
+
 # License
 
 Licensed under MIT
