@@ -24,7 +24,7 @@ namespace Greentube.Monitoring.Tests
                 TimeSpan.FromMilliseconds(0),
                 TimeSpan.FromSeconds(2));
             public ILogger<ResourceMonitor> Logger { get; set; } = Substitute.For<ILogger<ResourceMonitor>>();
-            private bool IsCritical { get; } = true;
+            public  bool IsCritical { get; set;  } = true;
             public ITimerFactory TimerFactory { get; set; } = Substitute.For<ITimerFactory>();
             public ITimer Timer { get; } = Substitute.For<ITimer>();
 
@@ -194,6 +194,37 @@ namespace Greentube.Monitoring.Tests
                 _fixture.Logger
                     .Received(1)
                     .Log(LogLevel.Critical, Arg.Any<EventId>(), Arg.Any<object>(), Arg.Any<ArithmeticException>(), Arg.Any<Func<object, Exception, string>>());
+            }
+        }
+
+        [Theory]
+        [InlineData(true, LogLevel.Error)]
+        [InlineData(false, LogLevel.Warning)]
+        public void Verify_ResourceStateDown_LogEntryLevelBasedOnCritical(bool isCritical, LogLevel expectedLogLevel)
+        {
+            var expectedException = new ArithmeticException();
+            _fixture.IsCritical = isCritical;
+            _fixture.HealthCheckStrategy.Check(Arg.Any<CancellationToken>()).Throws(expectedException);
+            using (var sut = _fixture.GetSut())
+            {
+                sut.Verify();
+                _fixture.Logger
+                    .Received(1)
+                    .Log(expectedLogLevel, Arg.Any<EventId>(), Arg.Any<object>(), Arg.Any<ArithmeticException>(), Arg.Any<Func<object, Exception, string>>());
+            }
+        }
+
+        [Fact]
+        public void Verify_ResourceStateUp_LogEntryLevelExpected()
+        {
+            _fixture.IsCritical = false;
+            _fixture.HealthCheckStrategy.Check(Arg.Any<CancellationToken>()).Returns(Task.FromResult(true));
+            using (var sut = _fixture.GetSut())
+            {
+                sut.Verify();
+                _fixture.Logger
+                    .Received(1)
+                    .Log(LogLevel.Trace, Arg.Any<EventId>(), Arg.Any<object>(), null, Arg.Any<Func<object, Exception, string>>());
             }
         }
 
