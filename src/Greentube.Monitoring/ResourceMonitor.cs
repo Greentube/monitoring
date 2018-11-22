@@ -148,7 +148,7 @@ namespace Greentube.Monitoring
 
             var evt = CreateVerificationEvent();
             _logger.Log(evt.IsUp ? LogLevel.Trace : LogLevel.Warning, 0,
-                new FormattedLogValues("{verificationTimeUtc}, {resource}, {up}, {ex}", DateTime.UtcNow, ResourceName,
+                new FormattedLogValues("{verificationTimeUtc}, {resource}, {critical}, {up}, {ex}", DateTime.UtcNow, ResourceName, IsCritical,
                     evt.IsUp, evt.Exception), null, null);
             sw.Stop();
             evt.Latency = sw.Elapsed;
