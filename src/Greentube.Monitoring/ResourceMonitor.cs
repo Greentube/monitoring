@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Threading;
 using Greentube.Monitoring.Threading;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Internal;
 
 namespace Greentube.Monitoring
 {
@@ -146,7 +147,9 @@ namespace Greentube.Monitoring
             var sw = Stopwatch.StartNew();
 
             var evt = CreateVerificationEvent();
-
+            _logger.Log(evt.IsUp ? LogLevel.Trace : LogLevel.Warning, 0,
+                new FormattedLogValues("{verificationTimeUtc}, {resource}, {up}, {ex}", DateTime.UtcNow, ResourceName,
+                    evt.IsUp, evt.Exception), null, null);
             sw.Stop();
             evt.Latency = sw.Elapsed;
 
