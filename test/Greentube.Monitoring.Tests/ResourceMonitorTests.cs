@@ -24,7 +24,7 @@ namespace Greentube.Monitoring.Tests
                 TimeSpan.FromMilliseconds(0),
                 TimeSpan.FromSeconds(2));
             public ILogger<ResourceMonitor> Logger { get; set; } = Substitute.For<ILogger<ResourceMonitor>>();
-            public  bool IsCritical { get; set;  } = true;
+            public bool IsCritical { get; set; } = true;
             public ITimerFactory TimerFactory { get; set; } = Substitute.For<ITimerFactory>();
             public ITimer Timer { get; } = Substitute.For<ITimer>();
 
@@ -200,7 +200,7 @@ namespace Greentube.Monitoring.Tests
         [Theory]
         [InlineData(true, LogLevel.Error)]
         [InlineData(false, LogLevel.Warning)]
-        public void Verify_ResourceStateDown_LogEntryLevelBasedOnCritical(bool isCritical, LogLevel expectedLogLevel)
+        public void Verify_ResourceStateDown_LoggedWithLevelBasedOnCritical(bool isCritical, LogLevel expectedLogLevel)
         {
             var expectedException = new ArithmeticException();
             _fixture.IsCritical = isCritical;
@@ -215,7 +215,7 @@ namespace Greentube.Monitoring.Tests
         }
 
         [Fact]
-        public void Verify_ResourceStateUp_LogEntryLevelExpected()
+        public void Verify_ResourceStateUp_LoggedAsTrace()
         {
             _fixture.IsCritical = false;
             _fixture.HealthCheckStrategy.Check(Arg.Any<CancellationToken>()).Returns(Task.FromResult(true));
