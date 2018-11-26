@@ -4,6 +4,7 @@
     <TargetFramework>net46</TargetFramework>
     <NoWarn>$(NoWarn);1591</NoWarn>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+    <Configurations>Debug;Release;Coverage</Configurations>
   </PropertyGroup>
 
   <ItemGroup>

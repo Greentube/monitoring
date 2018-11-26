@@ -7,6 +7,7 @@
     <PackageId>Greentube.Monitoring.MongoDB.Tests</PackageId>
     <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
     <RuntimeFrameworkVersion>2.0.0</RuntimeFrameworkVersion>
+    <Configurations>Debug;Release;Coverage</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
