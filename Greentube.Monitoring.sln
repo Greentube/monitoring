@@ -40,6 +40,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.Apache
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Greentube.Monitoring.IntegrationTests", "test\Greentube.Monitoring.IntegrationTests\Greentube.Monitoring.IntegrationTests.csproj", "{B9FAE3D9-FB45-479B-ADAE-5A81B0EED0A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Greentube.Monitoring.InternalResource", "src\Greentube.Monitoring.InternalResource\Greentube.Monitoring.InternalResource.csproj", "{6C953298-9D57-49A7-8123-C110A99EADA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Coverage|Any CPU = Coverage|Any CPU
@@ -125,6 +127,12 @@ Global
 		{B9FAE3D9-FB45-479B-ADAE-5A81B0EED0A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9FAE3D9-FB45-479B-ADAE-5A81B0EED0A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9FAE3D9-FB45-479B-ADAE-5A81B0EED0A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C953298-9D57-49A7-8123-C110A99EADA6}.Coverage|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C953298-9D57-49A7-8123-C110A99EADA6}.Coverage|Any CPU.Build.0 = Debug|Any CPU
+		{6C953298-9D57-49A7-8123-C110A99EADA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C953298-9D57-49A7-8123-C110A99EADA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C953298-9D57-49A7-8123-C110A99EADA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C953298-9D57-49A7-8123-C110A99EADA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,6 +151,7 @@ Global
 		{D5DEE9C7-0A0A-4789-BD75-F78F5037C69A} = {843C8ED0-4792-40E0-8903-A3E5FF74A0A3}
 		{DA5A72B9-EEED-4CFF-97A4-C5FE6BC90FB6} = {AE749C50-94C1-445C-B13F-E9D19372CBDB}
 		{B9FAE3D9-FB45-479B-ADAE-5A81B0EED0A8} = {AE749C50-94C1-445C-B13F-E9D19372CBDB}
+		{6C953298-9D57-49A7-8123-C110A99EADA6} = {843C8ED0-4792-40E0-8903-A3E5FF74A0A3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {BC80F7F7-4B53-4822-BFCB-50AC6E0EE384}
