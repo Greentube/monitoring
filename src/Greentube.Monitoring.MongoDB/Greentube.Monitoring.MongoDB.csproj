@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Greentube.Monitoring.MongoDB</AssemblyName>
     <PackageVersion>0.0.0</PackageVersion>
@@ -9,7 +9,7 @@
     <PackageId>Greentube.Monitoring.MongoDB</PackageId>
     <Description>MongoDB health monitor for Greentube.Monitoring allowing probes and health check of Mongo databases</Description>
     <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
-    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+    <NetStandardImplicitPackageVersion>2.0.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="mongocsharpdriver" Version="2.3.0-rc1" />
+    <PackageReference Include="mongocsharpdriver" Version="2.10.4" />
   </ItemGroup>
 
 </Project>

@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.Threading;
 using Greentube.Monitoring.Threading;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Internal;
 
 namespace Greentube.Monitoring
 {
@@ -149,9 +148,8 @@ namespace Greentube.Monitoring
             var evt = CreateVerificationEvent();
             var logLevelForDown = IsCritical ? LogLevel.Error : LogLevel.Warning;
             var logLevel = evt.IsUp ? LogLevel.Trace : logLevelForDown;
-            _logger.Log(logLevel, 0,
-                new FormattedLogValues("{verificationTimeUtc}, {resource}, {critical}, {up}, {ex}", DateTime.UtcNow, ResourceName, IsCritical,
-                    evt.IsUp, evt.Exception), null, null);
+            _logger.Log(logLevel, 0, "{verificationTimeUtc}, {resource}, {critical}, {up}, {ex}", DateTime.UtcNow, ResourceName, IsCritical,
+                    evt.IsUp, evt.Exception);
             sw.Stop();
             evt.Latency = sw.Elapsed;
 
