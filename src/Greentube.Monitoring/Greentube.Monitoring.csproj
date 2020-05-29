@@ -9,7 +9,7 @@
     <Description>Package to allow monitoring dependant resources and keep state of the last checks to report to a Load Balancer or APM (Application Performance Monitoring) tool.</Description>
     <PackageTags>health-checks;monitor;health;load-balancer</PackageTags>
     <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
-    <NetStandardImplicitPackageVersion>2.0.0</NetStandardImplicitPackageVersion>
+    <NetStandardImplicitPackageVersion>2.1.0</NetStandardImplicitPackageVersion>
     <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
