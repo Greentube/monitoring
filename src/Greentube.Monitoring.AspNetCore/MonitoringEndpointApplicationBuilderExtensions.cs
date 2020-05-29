@@ -1,8 +1,8 @@
 ﻿using System;
 using Greentube.Monitoring;
 using Greentube.Monitoring.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
 // ReSharper disable once CheckNamespace - To ease discoverability (and avoid tons of using directives) on ASP.NET Core: Startup.cs
 namespace Microsoft.AspNetCore.Builder
@@ -29,7 +29,7 @@ namespace Microsoft.AspNetCore.Builder
 
             var collector = provider.GetRequiredService<IResourceStateCollector>();
             collector.Start();
-            var lifetime = provider.GetService<IApplicationLifetime>();
+            var lifetime = provider.GetService<IHostApplicationLifetime>();
             lifetime?.ApplicationStopping.Register(() => collector.Stop());
 
             var options = new HealthCheckOptions();
