@@ -11,7 +11,6 @@
     <PackageTags>aspnetcore;middleware;health-checks;monitor;health;load-balancer</PackageTags>
     <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
     <NetStandardImplicitPackageVersion>2.1.0</NetStandardImplicitPackageVersion>
-    <PackageTargetFallback>$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
