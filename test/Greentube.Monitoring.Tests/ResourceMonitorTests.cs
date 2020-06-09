@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Greentube.Monitoring.Threading;
@@ -191,9 +192,10 @@ namespace Greentube.Monitoring.Tests
 
                 Assert.Throws<ArithmeticException>(() => sut.Verify());
 
-                _fixture.Logger
-                    .Received(1)
-                    .Log(LogLevel.Critical, Arg.Any<EventId>(), Arg.Any<object>(), Arg.Any<ArithmeticException>(), Arg.Any<Func<object, Exception, string>>());
+                Assert.Equal(1, _fixture.Logger.ReceivedCalls()
+                    .Select(call => call.GetArguments())
+                    .Count(callArguments => ((LogLevel)callArguments[0]).Equals(LogLevel.Critical)));
+
             }
         }
 
@@ -208,9 +210,9 @@ namespace Greentube.Monitoring.Tests
             using (var sut = _fixture.GetSut())
             {
                 sut.Verify();
-                _fixture.Logger
-                    .Received(1)
-                    .Log(expectedLogLevel, Arg.Any<EventId>(), Arg.Any<object>(), Arg.Any<ArithmeticException>(), Arg.Any<Func<object, Exception, string>>());
+                Assert.Equal(1, _fixture.Logger.ReceivedCalls()
+                    .Select(call => call.GetArguments())
+                    .Count(callArguments => ((LogLevel)callArguments[0]).Equals(expectedLogLevel)));
             }
         }
 
@@ -222,9 +224,9 @@ namespace Greentube.Monitoring.Tests
             using (var sut = _fixture.GetSut())
             {
                 sut.Verify();
-                _fixture.Logger
-                    .Received(1)
-                    .Log(LogLevel.Trace, Arg.Any<EventId>(), Arg.Any<object>(), null, Arg.Any<Func<object, Exception, string>>());
+                Assert.Equal(1, _fixture.Logger.ReceivedCalls()
+                    .Select(call => call.GetArguments())
+                    .Count(callArguments => ((LogLevel)callArguments[0]).Equals(LogLevel.Trace)));
             }
         }
 

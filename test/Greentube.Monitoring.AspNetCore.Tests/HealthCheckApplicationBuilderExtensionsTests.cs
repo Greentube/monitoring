@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using NSubstitute;
 using Xunit;
 
@@ -45,11 +45,11 @@ namespace Greentube.Monitoring.AspNetCore.Tests
         public void UseMonitoringEndpoint_StoppingApplicationLifetime_StopsCollector()
         {
             var source = new CancellationTokenSource();
-            var appLifetime = Substitute.For<IApplicationLifetime>();
+            var appLifetime = Substitute.For<IHostApplicationLifetime>();
             appLifetime.ApplicationStopping.Returns(source.Token);
 
             var sut = _fixture.GetSut();
-            sut.ApplicationServices.GetService(typeof(IApplicationLifetime)).Returns(appLifetime);
+            sut.ApplicationServices.GetService(typeof(IHostApplicationLifetime)).Returns(appLifetime);
 
             sut.UseMonitoringEndpoint();
             source.Cancel();

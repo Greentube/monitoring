@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.5</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Greentube.Monitoring.Redis</AssemblyName>
     <PackageVersion>0.0.0</PackageVersion>
@@ -10,7 +10,7 @@
     <Description>Redis health monitor for Greentube.Monitoring allowing probes and health check of Redis databases</Description>
     <PackageTags>redis;health-checks;monitor;health;load-balancer</PackageTags>
     <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
-    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+    <NetStandardImplicitPackageVersion>2.0.0</NetStandardImplicitPackageVersion>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>

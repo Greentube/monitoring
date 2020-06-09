@@ -18,7 +18,7 @@ namespace Greentube.Monitoring.IntegrationTests
             return services.BuildServiceProvider();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseMonitoringEndpoint(options => options.Path = "/health");
         }

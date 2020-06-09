@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.IO.Pipelines;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
@@ -25,7 +26,7 @@ namespace Greentube.Monitoring.AspNetCore.Tests
                 HttpContext.Request.Returns(HttpRequest);
                 HttpContext.Response.Returns(HttpResponse);
                 HttpRequest.Method.Returns("GET");
-                HttpResponse.Body.Returns(Stream);
+                HttpResponse.BodyWriter.Returns(PipeWriter.Create(Stream));
             }
 
             public HealthCheckMiddleware GetSut()

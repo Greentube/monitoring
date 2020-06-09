@@ -211,7 +211,7 @@ namespace Greentube.Monitoring.Tests
             _fixture.ResourceMonitorMock2.MonitoringEvent += Raise.EventWith(new object(), new ResourceMonitorEventArgs());
 
             // Assert
-            Assert.Equal(0, sut.GetStates().SelectMany(s => s.MonitorEvents).Count());
+            Assert.Empty(sut.GetStates().SelectMany(s => s.MonitorEvents));
         }
 
         [Fact]

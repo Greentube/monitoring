@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Reflection;
 using Greentube.Monitoring;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 // ReSharper disable once CheckNamespace - To ease discoverability (and avoid tons of using directives) on ASP.NET Core: Startup.cs
@@ -37,7 +37,7 @@ namespace Microsoft.AspNetCore.Builder
 
             return services
                 .AddSingleton<IVersionService, VersionService>(
-                    provider => new VersionService(provider.GetRequiredService<IHostingEnvironment>(), entryAssembly))
+                    provider => new VersionService(provider.GetRequiredService<IHostEnvironment>(), entryAssembly))
                 .AddSingleton<IResourceMonitorConfiguration>(options)
                 .AddSingleton<IResourceStateCollector>(p =>
                 {
