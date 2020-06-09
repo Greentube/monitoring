@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\Greentube.Monitoring.InternalResource\Greentube.Monitoring.InternalResource.csproj" />
     <ProjectReference Include="..\..\src\Greentube.Monitoring.AspNetCore\Greentube.Monitoring.AspNetCore.csproj" />
     <ProjectReference Include="..\..\src\Greentube.Monitoring\Greentube.Monitoring.csproj" />
   </ItemGroup>
