@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <AssemblyName>Greentube.Monitoring.SqlDb</AssemblyName>
     <PackageVersion>0.0.0</PackageVersion>
@@ -10,7 +10,7 @@
     <Description>SQL Server health monitor for Greentube.Monitoring allowing probes and health check of SQL Server instances</Description>
     <PackageTags>sql-server;mssql;health-checks;monitor;health;load-balancer</PackageTags>
     <PackageProjectUrl>https://github.com/Greentube/monitoring</PackageProjectUrl>
-    <NetStandardImplicitPackageVersion>2.1.0</NetStandardImplicitPackageVersion>
+    <NetStandardImplicitPackageVersion>2.0.0</NetStandardImplicitPackageVersion>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
