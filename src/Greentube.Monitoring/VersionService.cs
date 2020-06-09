@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Reflection;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
 
 namespace Greentube.Monitoring
@@ -20,7 +20,7 @@ namespace Greentube.Monitoring
         /// </summary>
         /// <param name="hostingEnvironment">The hosting environment.</param>
         /// <param name="assembly">The assembly to inspect for AssemblyInformationalVersionAttribute.</param>
-        public VersionService(IHostingEnvironment hostingEnvironment, Assembly assembly)
+        public VersionService(IHostEnvironment hostingEnvironment, Assembly assembly)
         {
             if (hostingEnvironment == null) throw new ArgumentNullException(nameof(hostingEnvironment));
             if (assembly == null) throw new ArgumentNullException(nameof(assembly));

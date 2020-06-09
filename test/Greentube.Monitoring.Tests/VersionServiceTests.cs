@@ -2,7 +2,7 @@
 using System.Net;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.PlatformAbstractions;
 using NSubstitute;
 using Xunit;
@@ -15,7 +15,7 @@ namespace Greentube.Monitoring.Tests
         public void GetVersionInformation_ValidVersion()
         {
             // Arrange
-            var environment = Substitute.For<IHostingEnvironment>();
+            var environment = Substitute.For<IHostEnvironment>();
             const string expectedEnvionmentName = "Test environment name";
             environment.EnvironmentName.Returns(expectedEnvionmentName);
 
