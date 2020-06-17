@@ -1,6 +1,4 @@
 configuration: Release
-init:
-  - git config --global core.autocrlf true
 before_build:
   - dotnet restore
 # Will build dependencies in release (optimize and portable pdbs) mode:
@@ -18,7 +16,7 @@ environment:
     DOTNET_CLI_TELEMETRY_OPTOUT: 1
 test: off
 deploy: off
-os: Visual Studio 2017
+os: Visual Studio 2019
 assembly_info:
   patch: true
   file: GlobalAssemblyInfo.cs
