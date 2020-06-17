@@ -2,10 +2,10 @@ configuration: Release
 init:
   - git config --global core.autocrlf true
 before_build:
-  - nuget restore
+  - dotnet restore
 # Will build dependencies in release (optimize and portable pdbs) mode:
 build_script:
-  - cmd: for /f %%a in ('dir /b test') do dotnet test -c Release test/%%a/%%a.csproj
+- msbuild "C:\projects\monitoring\Greentube.Monitoring.sln" /m /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
 after_build:
 # packing the current Release build of all projects under src/
   - cmd: for /f %%a in ('dir /b src') do dotnet pack --no-build -c Release src/%%a/%%a.csproj
