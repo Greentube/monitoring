@@ -1,3 +1,4 @@
+test if appveyor pick this file
 configuration: Release
 init:
   - git config --global core.autocrlf true
@@ -18,7 +19,7 @@ environment:
     DOTNET_CLI_TELEMETRY_OPTOUT: 1
 test: off
 deploy: off
-os: Windows Server 2019
+os: Windows Server 2025
 assembly_info:
   patch: true
   file: GlobalAssemblyInfo.cs
